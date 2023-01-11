@@ -1,0 +1,16 @@
+<h1> Hi and hello</h1>
+<div>
+  Oh you are signed in how cool
+  <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+  <%= @user.email %>
+</div>
+
+<%= link_to "New article", new_article_path %>
+
+<% @articles.each do |article| %>
+  <li>
+    <%= link_to article.title, article %> - <%= User.find(article.user_id).email %>
+  </li>
+<% end %>
+
+

@@ -13,7 +13,7 @@ RUN sudo apt-get install zlib1g-dev libssl-dev -y
 RUN sudo apt-get install openssl
 
 USER hosting
-WORKDIR /home/hosting
+WORKDIR d .
 SHELL [ "/bin/bash", "-l", "-c" ]
 RUN mkdir -p /home/hosting/workspace
 RUN curl -sSL https://rvm.io/mpapis.asc | gpg --import -
@@ -24,7 +24,7 @@ RUN rvm install ruby-3.1.2
 
 RUN rvm use 3.1.2 --default
 RUN gem source https://rubygems.org/
-RUN gem install bundler
+RUN gem install bundler -v 2.4.3
 RUN gem install rails
 WORKDIR /home/hosting/workspace
 

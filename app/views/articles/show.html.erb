@@ -1,0 +1,41 @@
+<h2><%= @article.title %></h2>
+<h6><%= @user.email %></h6>
+<% if current_user.id == @user.id %>
+  <%= link_to "Edit", edit_article_path(@article) %>
+  <%= link_to "Delete", article_path(@article), data: {
+    turbo_method: :delete,
+    turbo_confirm: "Are you sure"
+  } %>
+<% end %>
+<div>
+  <%= @article.body %>
+</div>
+
+<h2>Comments</h2>
+<% @article.comments.each do |comment| %>
+
+  <p>
+    <strong>Comment:</strong>
+    <%= comment.body %>
+    - <i><%= User.find(comment.user_id).email %></i>
+    <% if current_user.id == comment.user_id %>
+      <%= link_to "Delete", [comment.article, comment], data: {
+        turbo_method: :delete,
+        turbo_confirms: "Are you sure?"
+      } %>
+    <% end %>
+  </p>
+<% end %>
+
+
+
+<h2>Add a comment:</h2>
+<%= form_with model: [@article, @article.comments.build] do |form| %>
+  <p>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
