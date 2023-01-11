@@ -1,0 +1,5 @@
+{
+	"devDependencies": {
+		"@nuxtjs/storybook": "^4.3.2"
+	}
+}

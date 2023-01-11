@@ -1,0 +1,9 @@
+version: '3'
+services:
+  web:
+    build: .
+    tty: true
+    volumes:
+      - /Users/hubertmalkowski/RubymineProjects/blog_auth:/home/hosting/workspace/
+    ports:
+      - "127.0.0.1:3000:3000"
