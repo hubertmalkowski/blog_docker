@@ -1,8 +1,8 @@
 <h2><%= @article.title %></h2>
 <h6><%= @user.email %></h6>
 <% if current_user.id == @user.id %>
-  <%= link_to "Edit", edit_article_path(@article) %>
-  <%= link_to "Delete", article_path(@article), data: {
+  <%= link_to "Edit", edit_admin_article_path(@article) %>
+  <%= link_to "Delete", admin_article_path(@article), data: {
     turbo_method: :delete,
     turbo_confirm: "Are you sure"
   } %>

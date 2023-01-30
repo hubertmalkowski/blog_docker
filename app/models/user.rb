@@ -6,4 +6,11 @@ class User < ApplicationRecord
   has_many :comments, :dependent => :destroy
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  def admin?
+    if user_type == 1
+      return true
+    end
+    false
+  end
 end

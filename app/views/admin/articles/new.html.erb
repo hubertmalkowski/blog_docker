@@ -1,4 +1,5 @@
-<%= form_with model: @article do |form| %>
+<h1>New article</h1>
+<%= form_with url: admin_articles_path, model: @article, local: true do |form| %>
   <div>
     <%= form.label :title %>
     <%= form.text_field :title %>
@@ -16,6 +17,4 @@
   <div>
     <%= form.submit %>
   </div>
-
-
 <% end %>

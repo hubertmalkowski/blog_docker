@@ -5,7 +5,10 @@
   <%= @user.email %>
 </div>
 
-<%= link_to "New article", new_article_path %>
+<% if current_user.user_type == 1 %>
+
+  <%= link_to "New article", new_admin_article_url %>
+<% end %>
 
 <% @articles.each do |article| %>
   <li>

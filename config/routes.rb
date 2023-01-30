@@ -5,7 +5,10 @@ Rails.application.routes.draw do
     resources :articles
   end
 
-  resources :articles, only: [:show, :index] do
-    resources :comments
+  scope module: 'admin' do
+    resources :articles, only: [:show, :index] do
+      resources :comments
+    end
   end
+
 end

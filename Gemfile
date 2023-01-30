@@ -44,6 +44,7 @@ gem "tzinfo-data"
 gem "bootsnap", require: false
 gem 'devise'
 
+gem 'rubocop-rails', require: false
 
 # Use Sass to process CSS
 # gem "sassc-rails"
@@ -73,3 +74,5 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem "pundit", "~> 2.3"
